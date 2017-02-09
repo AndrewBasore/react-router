@@ -6,34 +6,35 @@ export default class Album extends Component {
   constructor(props){
     super(props);
 
-    this.album = props.album;
-    this.currentSong = props.currentSong;
-    this.isPlaying = props.isPlaying;
-    this.toggleOne = props.toggleOne;
-
   }
 
   componentDidMount() {
     const albumId = this.props.routeParams.albumId;
     const selectAlbum = this.props.selectAlbum;
-    console.log("componentDidMount!");
+
+
+
     selectAlbum(albumId);
   }
 
-
   render () {
-    console.log(this.album);
+    const album = this.props.album;
+    console.log("This is the proper songs: ", album.songs);
+    const currentSong = this.props.currentSong;
+    const isPlaying = this.props.isPlaying;
+    const toggleOne = this.props.toggleOne;
+
     return (
       <div className="album">
         <div>
-          <h3>{ this.album.name }</h3>
-          <img src={ this.album.imageUrl } className="img-thumbnail" />
+          <h3>{ album.name }</h3>
+          <img src={ album.imageUrl } className="img-thumbnail" />
         </div>
         <Songs
-          songs={this.album.songs}
-          currentSong={this.currentSong}
-          isPlaying={this.isPlaying}
-          toggleOne={this.toggleOne} />
+          songs={album.songs}
+          currentSong={currentSong}
+          isPlaying={isPlaying}
+          toggleOne={toggleOne} />
       </div>
     );
   }

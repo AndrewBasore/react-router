@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 const Sidebar = (props) => {
 
@@ -9,7 +10,10 @@ const Sidebar = (props) => {
       <img src="juke.svg" className="logo" />
       <section>
         <h4 className="menu-item active">
-          <a href="#" onClick={deselectAlbum}>ALBUMS</a>
+          <Link activeClassName="active" href="#" to="/albums/">ALBUMS</Link>
+        </h4>
+        <h4>
+          <Link activeClassName="active" to="/artists">ARTISTS</Link>
         </h4>
       </section>
     </sidebar>
